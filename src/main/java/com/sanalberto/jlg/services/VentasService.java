@@ -1,6 +1,6 @@
 package com.sanalberto.jlg.services;
 
-import com.sanalberto.jlg.models.Venta;
+import com.sanalberto.jlg.DAO.Venta;
 import com.sanalberto.jlg.repositories.*;
 
 import java.io.BufferedReader;
@@ -8,12 +8,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Scanner;
+
+import static java.lang.IO.println;
 
 public class VentasService {
-    public static StringBuilder leerVentasCSV(String rutaArchivo) {
+    public static StringBuilder leerVentasCSV(String mensaje) {
+        Scanner scanner = new Scanner(System.in);
         InsertarVentasDB insertarVentasDB = new InsertarVentasDB();
         StringBuilder respuesta = new StringBuilder();
-
+        println(mensaje);
+        String rutaArchivo = scanner.nextLine();
         String linea;
 
 
@@ -89,5 +94,5 @@ public class VentasService {
 
 
         return respuesta;
-}
+    }
 }

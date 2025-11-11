@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.IO.println;
 
 public class UserMethods {
-    public static double leerDecimal(String mensaje, Scanner scanner){
+    public static double leerDouble(String mensaje, Scanner scanner){
         double decimal = 0;
         boolean valido = false;
         while (!valido){

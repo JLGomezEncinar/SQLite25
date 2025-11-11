@@ -1,19 +1,26 @@
 package com.sanalberto.jlg.services;
 
-import com.sanalberto.jlg.models.Coche;
+import com.sanalberto.jlg.DAO.Coche;
 import com.sanalberto.jlg.repositories.ActualizarDisponibilidadCocheDB;
 import com.sanalberto.jlg.repositories.ConsultarDisponibilidadCocheDB;
 import com.sanalberto.jlg.repositories.ConsultarIdCocheDB;
 import com.sanalberto.jlg.repositories.InsertarCochesDB;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
+
+import static java.lang.IO.println;
 
 public class CochesService {
-    public static StringBuilder leerCochesCSV(String rutaArchivo) {
+    public static StringBuilder leerCochesCSV(String mensaje) {
+        Scanner sc = new Scanner(System.in);
         InsertarCochesDB insertarCochesDB = new InsertarCochesDB();
         StringBuilder respuesta = new StringBuilder();
+        println(mensaje);
+        String rutaArchivo = sc.nextLine();
 
         String linea;
 

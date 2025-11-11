@@ -1,7 +1,7 @@
 package com.sanalberto.jlg.cmd;
 
-import com.sanalberto.jlg.models.Cliente;
-import com.sanalberto.jlg.models.Venta;
+import com.sanalberto.jlg.DAO.Cliente;
+import com.sanalberto.jlg.DAO.Venta;
 import com.sanalberto.jlg.repositories.InsertarClientesDB;
 import com.sanalberto.jlg.repositories.InsertarCochesDB;
 import com.sanalberto.jlg.repositories.InsertarVentasDB;
@@ -49,18 +49,18 @@ public class MenuInicial {
         switch (opcion) {
             case "0" -> salir = true;
             case "1" -> {
-                println(cochesService.leerCochesCSV("src/main/resources/coches.csv"));
+                println(cochesService.leerCochesCSV("Introduce la ruta CSV de coches"));
 
 
 
             }
             case "2" -> {
-                println(clientesService.leerClientesCSV("src/main/resources/clientes.csv"));
+                println(clientesService.leerClientesCSV("Introduce la ruta CSV de clientes"));
 
 
             }
             case "3" -> {
-                println(ventasService.leerVentasCSV("src/main/resources/ventas.csv"));
+                println(ventasService.leerVentasCSV("Introduce la ruta CSV de ventas"));
 
 
             }

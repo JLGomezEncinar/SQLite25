@@ -1,6 +1,6 @@
 package com.sanalberto.jlg.cmd;
 
-import com.sanalberto.jlg.dto.CocheDTO;
+import com.sanalberto.jlg.DTO.CocheDTO;
 import com.sanalberto.jlg.libs.UserMethods;
 import com.sanalberto.jlg.services.ClientesService;
 import com.sanalberto.jlg.services.CochesService;
@@ -66,7 +66,7 @@ public class MenuVentas {
             }
             case "3" -> {
                 VentasService ventasService = new VentasService();
-                cocheDTO.setPrecio(userMethods.leerDecimal("Introduce el precio de venta del coche", scanner));
+                cocheDTO.setPrecio(userMethods.leerDouble("Introduce el precio de venta del coche", scanner));
                 println(cocheDTO.getPrecio());
 
                 if (ventasService.comprobarVenta(cocheDTO.getIdCoche(), cocheDTO.getIdCliente(), cocheDTO.getPrecio())) {

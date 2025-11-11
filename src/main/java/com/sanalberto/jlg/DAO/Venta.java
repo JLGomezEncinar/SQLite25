@@ -1,4 +1,4 @@
-package com.sanalberto.jlg.models;
+package com.sanalberto.jlg.DAO;
 
 import java.sql.Date;
 

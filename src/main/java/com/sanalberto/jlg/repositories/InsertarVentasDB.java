@@ -1,7 +1,7 @@
 package com.sanalberto.jlg.repositories;
 
 import com.sanalberto.jlg.dataBase.ConexionDB;
-import com.sanalberto.jlg.models.Venta;
+import com.sanalberto.jlg.DAO.Venta;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

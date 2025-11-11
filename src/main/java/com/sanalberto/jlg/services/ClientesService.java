@@ -1,19 +1,25 @@
 package com.sanalberto.jlg.services;
 
-import com.sanalberto.jlg.models.Cliente;
+import com.sanalberto.jlg.DAO.Cliente;
 import com.sanalberto.jlg.repositories.ConsultarClienteDB;
 import com.sanalberto.jlg.repositories.InsertarClientesDB;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
+
+import static java.lang.IO.println;
 
 public class ClientesService {
-    public static StringBuilder leerClientesCSV(String rutaArchivo) {
-
+    public static StringBuilder leerClientesCSV(String mensaje) {
+        Scanner scanner = new Scanner(System.in);
         InsertarClientesDB insertarClientesDB = new InsertarClientesDB();
         StringBuilder respuesta = new StringBuilder();
+        println(mensaje);
+        String rutaArchivo = scanner.nextLine();
         String linea;
+
 
 
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {

@@ -1,7 +1,7 @@
 package com.sanalberto.jlg.repositories;
 
 import com.sanalberto.jlg.dataBase.ConexionDB;
-import com.sanalberto.jlg.models.Coche;
+import com.sanalberto.jlg.DAO.Coche;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

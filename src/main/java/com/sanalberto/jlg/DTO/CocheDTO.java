@@ -1,4 +1,4 @@
-package com.sanalberto.jlg.dto;
+package com.sanalberto.jlg.DTO;
 
 public class CocheDTO {
     private int idCoche;
