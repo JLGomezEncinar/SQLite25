@@ -8,6 +8,7 @@ import java.util.Scanner;
 import static java.lang.IO.println;
 
 public class UserMethods {
+    //Función que llamamos para controlar que el usuario escriba un número entero
     public static int leerEntero(String mensaje, Scanner scanner){
         int entero = 0;
         boolean valido = false;

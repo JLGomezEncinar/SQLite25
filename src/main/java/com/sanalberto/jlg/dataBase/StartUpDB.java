@@ -18,27 +18,27 @@ public class StartUpDB {
             try (Connection conDB = conexionDB.connect()){
                 Statement statement = conDB.createStatement();
 
-                // path to our SQL Script file
+                // Indicamos la ruta al archivo SQL y empezamos a leer el archivo
                 String filePath = "src/main/resources/concesionario.sql";
                 BufferedReader br = new BufferedReader(new FileReader(filePath));
 
-                // String Builder to build the query line by line.
+                // En el StringBuilder iremos añadiendo las sentencias SQL
                 StringBuilder query = new StringBuilder();
                 String line;
 
                 while((line = br.readLine()) != null) {
-
+                    //Ignoramos las líneas de comentarios
                     if(line.trim().startsWith("-- ")) {
                         continue;
                     }
 
-                    // Append the line into the query string and add a space after that
+                    // Añadimos las líneas que contienen sentencias SQL
                     query.append(line).append(" ");
 
                     if(line.trim().endsWith(";")) {
-                        // Execute the Query
+                        // Ejecutamos el StringBuilder cuando encontramos una línea que acabe en ;
                         statement.execute(query.toString().trim());
-                        // Empty the Query string to add new query from the file
+                        // Vaciamos el StringBuilder para la siguiente sentencia SQL
                         query = new StringBuilder();
                     }
                 }
@@ -48,8 +48,8 @@ public class StartUpDB {
 
             }
             catch (Exception e) {
-                // Error handling Statements
-                System.out.println(e);
+                // Imprimimos los posibles errores que recibamos
+                println(e);
             }
         }
     }

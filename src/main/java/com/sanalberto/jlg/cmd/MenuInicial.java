@@ -49,9 +49,11 @@ public class MenuInicial {
                 UserMethods userMethods = new UserMethods();
                 int id_venta = userMethods.leerEntero("Introduce el id de venta", scanner);
                 VentaDTO ventaDTO = ventasService.recuperarVentaDB(id_venta);
+                // Si el id de venta no existe devuelve id = 0
                 if (ventaDTO.getId_venta() == 0) {
                     println("No existe ninguna venta con ese id");
                 } else {
+                    //Imprimimos por pantalla los datos de la venta
                     println(ventaDTO.getId_venta() + " " + ventaDTO.getNombreCliente() + " " + ventaDTO.getModelo() + " " + ventaDTO.getFechaVenta() + " " + ventaDTO.getPrecioVenta());
                 }
 
