@@ -49,7 +49,7 @@ public class StartUpDB {
             }
             catch (Exception e) {
                 // Error handling Statements
-                System.out.println(e.toString());
+                System.out.println(e);
             }
         }
     }
