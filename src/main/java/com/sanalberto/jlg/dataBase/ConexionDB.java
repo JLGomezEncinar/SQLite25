@@ -13,7 +13,7 @@ public class ConexionDB {
         Connection conexion = null;
         try {
             conexion = DriverManager.getConnection(url);
-            println("Conexión OK");
+
         } catch (SQLException e) {
             println("Conexión mal");
         }

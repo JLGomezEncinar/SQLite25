@@ -6,24 +6,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class EliminarVentaDB {
-    public static boolean eliminarVenta(Integer id_cliente){
-        boolean ventaEliminada = false;
-        String EliminarVentaString = "DELETE FROM ventas WHERE id_cliente = ?;";
+public class BorrarClienteDB {
+    public static boolean eliminarCliente(int id_cliente){
+        boolean clienteEliminado = false;
+        String eliminarClienteString = "DELETE FROM clientes WHERE id_cliente = ?;";
         PreparedStatement seleccionarCliente = null;
         ConexionDB conexionDB = new ConexionDB();
         try (Connection conDB = conexionDB.connect()) {
-            seleccionarCliente = conDB.prepareStatement(EliminarVentaString);
+            seleccionarCliente = conDB.prepareStatement(eliminarClienteString);
             seleccionarCliente.setInt(1, id_cliente);
             seleccionarCliente.executeUpdate();
-            ventaEliminada = true;            
+            clienteEliminado = true;
 
 
 
         } catch (SQLException e) {
-            ventaEliminada = false;
+            clienteEliminado = false;
         }
-        return ventaEliminada;
+        return clienteEliminado;
     }
-
 }

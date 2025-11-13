@@ -27,7 +27,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="e01c98d4-2d36-4610-8356-034a1cc31420">
-      <console name="Connection" type="STANDARD" schema="concesionario" session="Main"><![CDATA[select * from coches;]]></console>
+      <console name="Connection" type="STANDARD" schema="concesionario" session="Main"><![CDATA[select * from ventas inner join coches on ventas.id_coche= coches.id_coche inner join clientes on ventas.id_cliente = clientes.id_cliente where id_venta = 4;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

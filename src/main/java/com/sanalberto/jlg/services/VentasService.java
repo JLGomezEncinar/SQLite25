@@ -1,6 +1,7 @@
 package com.sanalberto.jlg.services;
 
-import com.sanalberto.jlg.DAO.Venta;
+import com.sanalberto.jlg.DTO.VentaDTO;
+import com.sanalberto.jlg.models.Venta;
 import com.sanalberto.jlg.repositories.*;
 
 import java.io.BufferedReader;
@@ -8,17 +9,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Scanner;
-
-import static java.lang.IO.println;
 
 public class VentasService {
-    public static StringBuilder leerVentasCSV(String mensaje) {
-        Scanner scanner = new Scanner(System.in);
+    public static StringBuilder leerVentasCSV(String rutaArchivo) {
         InsertarVentasDB insertarVentasDB = new InsertarVentasDB();
         StringBuilder respuesta = new StringBuilder();
-        println(mensaje);
-        String rutaArchivo = scanner.nextLine();
+
         String linea;
 
 
@@ -94,5 +90,13 @@ public class VentasService {
 
 
         return respuesta;
-    }
+}
+public static VentaDTO recuperarVentaDB(int id_venta) {
+        RecuperarVentaDB recuperarVentaDB = new RecuperarVentaDB();
+        return recuperarVentaDB.recuperarVenta(id_venta);
+}
+public static boolean eliminarVentaDB(int id_cliente){
+        EliminarVentaDB eliminarVentaDB = new EliminarVentaDB();
+        return eliminarVentaDB.eliminarVenta(id_cliente);
+}
 }
