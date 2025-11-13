@@ -3,35 +3,17 @@ package com.sanalberto.jlg.cmd;
 import com.sanalberto.jlg.DTO.VentaDTO;
 import com.sanalberto.jlg.dataBase.StartUpDB;
 import com.sanalberto.jlg.libs.UserMethods;
-import com.sanalberto.jlg.models.Cliente;
-import com.sanalberto.jlg.models.Venta;
-import com.sanalberto.jlg.repositories.InsertarClientesDB;
-import com.sanalberto.jlg.repositories.InsertarCochesDB;
-import com.sanalberto.jlg.repositories.InsertarVentasDB;
 import com.sanalberto.jlg.services.ClientesService;
-import com.sanalberto.jlg.services.CochesService;
 import com.sanalberto.jlg.services.VentasService;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import static java.lang.IO.print;
 import static java.lang.IO.println;
 
 
 public class MenuInicial {
     private Scanner scanner = new Scanner(System.in);
     private boolean salir = false;
-
-    CochesService cochesService = new CochesService();
-
-
-    ArrayList<Cliente> clientes = new ArrayList<>();
-    ArrayList<Venta> ventas = new ArrayList<>();
-    InsertarCochesDB insertarCochesDB = new InsertarCochesDB();
-    InsertarClientesDB insertarClientesDB = new InsertarClientesDB();
-    InsertarVentasDB insertarVentasDB = new InsertarVentasDB();
-    MenuVentas menuVentas = new MenuVentas();
 
 
     public void muestraMenu() {
