@@ -8,7 +8,7 @@ import java.sql.*;
 public class RecuperarVentaDB {
     public static VentaDTO recuperarVenta(int id_venta) {
         VentaDTO ventaDTO = new VentaDTO();
-        String recuperarVentaString = "select * from ventas inner join coches inner join clientes where id_venta = ?;";
+        String recuperarVentaString = "select * from ventas inner join coches on ventas.id_coche= coches.id_coche inner join clientes on ventas.id_cliente = clientes.id_cliente where id_venta = ?";
         PreparedStatement mostrarCoches = null;
         ConexionDB conexionDB = new ConexionDB();
         try (Connection conDB = conexionDB.connect()) {
