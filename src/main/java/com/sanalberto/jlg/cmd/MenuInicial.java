@@ -6,6 +6,7 @@ import com.sanalberto.jlg.libs.UserMethods;
 import com.sanalberto.jlg.services.ClientesService;
 import com.sanalberto.jlg.services.VentasService;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import static java.lang.IO.println;
@@ -36,13 +37,13 @@ public class MenuInicial {
             case "0" -> salir = true;
             case "1" -> {
                 StartUpDB startUpDB = new StartUpDB();
-                startUpDB.hacerCargaInicialDB();
+                println(startUpDB.hacerCargaInicialDB());
 
 
             }
             case "2" -> {
                 UserMethods userMethods = new UserMethods();
-                println(userMethods.borrarDB("Introduce la ruta de la base de datos a eliminar: ",scanner));
+                println(userMethods.borrarDB("Introduce la ruta de la base de datos a eliminar: ", scanner));
             }
             case "3" -> {
                 VentasService ventasService = new VentasService();
@@ -64,7 +65,12 @@ public class MenuInicial {
                 VentasService ventasService = new VentasService();
                 println("Introduce el nombre del cliente a borrar: ");
                 String nombre = scanner.nextLine();
-                int id_cliente = clientesService.buscarCliente(nombre);
+                int id_cliente = 0;
+                try {
+                    id_cliente = clientesService.buscarCliente(nombre);
+                } catch (SQLException e) {
+                    println("Error al realizar la consulta");
+                }
                 if (id_cliente == 0) {
                     println("El cliente no existe en la base de datos");
                 } else {
